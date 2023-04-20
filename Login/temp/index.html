@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="worker.js"></script>
+    <script defer>  
+
+console.log(document.getElementById('test'));
+
+const worker = new Worker('worker.js');
+worker.postMessage("start");
+// Create an array of suggestions
+var suggestions = ["apple", "banana", "cherry", "date", "elderberry", "fig", "bana", "ba", "bananana"];
+
+function picked(val)
+{   console.log(val);
+    var input = document.getElementById("searchBox");
+    input.value = val;
+    var suggestionList = document.getElementById("suggestions");
+    suggestionList.innerHTML = "";
+
+}
+
+function showSuggestions() {
+  var input = document.getElementById("searchBox").value;
+
+  var matchedSuggestions = suggestions.filter(function(suggestion) {
+
+    return suggestion.toLowerCase().startsWith(input.toLowerCase());
+  });
+  var suggestionList = document.getElementById("suggestions");
+  suggestionList.innerHTML = "";
+  if ((input.trim() !== "")){
+    
+    if (matchedSuggestions.length > 0) {
+    
+        suggestionList.classList.remove("hidden");
+        matchedSuggestions.slice(0,10).forEach(function(suggestion) {
+
+            let fetch = document.getElementById("suggestions").innerHTML;
+            let new_li = `<li onClick="picked(this.innerHTML)">${suggestion}</li>`;
+            suggestionList.innerHTML = new_li+fetch;
+        //   var li = document.createElement("li");
+        //   li.textContent = suggestion;
+        //   suggestionList.appendChild(li);
+        });
+    } 
+
+    else{
+        suggestionList.innerHTML="";
+    }
+}
+}
+
+
+
+    </script>
+
+
+<style>
+
+
+#suggestions {
+  list-style-type: none;
+  top: 100%;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  z-index: 1;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#suggestions li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+#suggestions li:hover {
+  background-color: #ddd;
+}
+
+.hidden {
+  display: none;
+}
+
+
+          
+</style>
+</head>
+<body>
+
+    <div style="width: 200px; position: relative;">
+        <input type="text" id="searchBox" onkeyup="showSuggestions()" style="width: 200px;">
+        <ul id="suggestions" class="hidden" style="width: 200px;"></ul>
+
+    </div>
+    <div id='test' style="background-color: black; height: 500px; font-size: xx-large; color: #ddd;"></div>
+    
+</body>
+</html>

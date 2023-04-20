@@ -1,0 +1,207 @@
+*{
+  box-sizing: border-box;
+}
+
+html{
+  overflow-x: hidden;
+}
+.container{
+    margin: 0;
+    padding: 0;
+    position: sticky;
+}
+
+.navbar{
+    width: 100vw;
+    max-width: 100vw;
+    padding-right: 30px;
+}
+
+.nav-item{
+    padding: 0 30px;
+    
+}
+
+.navbar-brand{
+    width: 100px;
+    
+}
+
+.nav-link{
+    transition: all 1s;
+}
+.nav-link:hover{
+    color: rgb(203, 98, 84);
+    letter-spacing: 2px;
+    
+}
+
+
+
+::-webkit-scrollbar {
+    width: 3px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #3179ec; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+.nav-items{
+   width: 50%; 
+   height: 50px;
+   margin-top: 20px;
+}
+
+.submit-btn{
+
+    width: 130px;
+    border-radius: 5px;
+    height: max-content;
+    height: 40px;
+    border: none;
+    color: #3179ec;
+    margin: 20px 0;
+}
+
+.submit-btn:hover{
+    background-color: #4287f5;
+    color: #fff;
+    transition: all 1s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  /* .row {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 30px;
+    background: #2daebf;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    height: 100vh;
+  }
+  
+  
+  .row:before {
+    position: absolute;
+    content: "";
+    display: flex;
+    top: 0;
+    left: -5000px;
+    height: 100%;
+    width: 15000px;
+    z-index: -1;
+    justify-content: center;
+    background: inherit;
+  } */
+  /* .row:first-child {
+    padding: 40px 30px;
+  } */
+  
+  /* .row span {
+    position: relative;
+    display: inline-block;
+    margin: 30px 10px;
+  } */
+
+
+
+
+
+
+
+
+  .centerall{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+
+
+
+.options{
+    height: auto;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+
+
+
+#suggestions {
+  transform: translateX(20px);
+  list-style-type: none;
+  top: 100%;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  z-index: 1;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#suggestions li {
+  padding: 10px;
+  cursor: pointer;
+  text-align: left;
+}
+
+#suggestions li:hover {
+  background-color: #ddd;
+}
+
+/* .hidden {
+  display: none;
+} */
+
+
+.contact-btn{
+  transition: all 0.5s;
+  width: 120px; height: 40px; background-image: linear-gradient(70deg, #007e28, #3ab506); color: #fff; border: none; border-radius: 7px; letter-spacing: 2px;
+}
+
+.contact-btn:hover{
+
+  width: 130px;
+}

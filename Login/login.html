@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css"
+    rel="stylesheet"
+    />
+    <!-- MDB -->
+    <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"
+    ></script>
+    <link rel="stylesheet" href="login.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script defer src="login.js"></script>
+    <script defer src="news_worker.js"></script>
+
+
+    <title>Login</title>
+</head>
+
+<body>
+  
+    <div class="container" style="z-index: 5; position: sticky; top: 0;">
+        <!-- Navbar -->
+       
+                <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                    <!-- Container wrapper -->
+                    <div class="container-fluid">
+                    <!-- Toggle button -->
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-mdb-toggle="collapse"
+                        data-mdb-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <i class="fas fa-bars"></i>
+                    </button>
+                
+                    <!-- Collapsible wrapper -->
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <!-- Navbar brand -->
+                        <a class="navbar-brand mt-2 mt-lg-0" href="#">
+                        <img
+                            src="./imgs/Reality Rise.png"
+                            height="25"
+                            alt="MDB Logo"
+                            loading="lazy"
+                        />
+                        </a>
+                        <!-- Left links -->
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../Buy/index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Properties</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../Buy/index.html#subscribe">Subscribe</a>
+                        </li>
+                        </ul>
+                        <!-- Left links -->
+                    </div>
+                    <!-- Collapsible wrapper -->
+                
+                    <!-- Right elements -->
+                    <div class="d-flex align-items-center">
+                        <!-- Icon -->
+                        <a class="link-secondary me-3" href="#">
+                        <!-- <i class="fas fa-shopping-cart"></i> -->
+                        </a>
+                
+                        <!-- Notifications -->
+                        <!-- <div class="dropdown">
+                        <a
+                            class="link-secondary me-3 dropdown-toggle hidden-arrow"
+                            href="#"
+                            id="navbarDropdownMenuLink"
+                            role="button"
+                            data-mdb-toggle="dropdown"
+                            aria-expanded="false"
+                        >
+                            <i class="fas fa-bell"></i>
+                            <span class="badge rounded-pill badge-notification bg-danger">1</span>
+                        </a>
+                        <ul
+                            class="dropdown-menu dropdown-menu-end"
+                            aria-labelledby="navbarDropdownMenuLink"
+                        >
+                            <li>
+                            <a class="dropdown-item" href="#">Some news</a>
+                            </li>
+                            <li>
+                            <a class="dropdown-item" href="#">Another news</a>
+                            </li>
+                            <li>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            </li>
+                        </ul>
+                        </div> -->
+                        <!-- Avatar -->
+                        <div class="dropdown">
+                        <a
+                            class="dropdown-toggle d-flex align-items-center hidden-arrow"
+                            href="#"
+                            id="navbarDropdownMenuAvatar"
+                            role="button"
+                            data-mdb-toggle="dropdown"
+                            aria-expanded="false"
+                        >
+                            <img
+                            src="./imgs/user_logo.png"
+                            class="rounded-circle"
+                            height="25"
+                            alt="Black and White Portrait of a Man"
+                            loading="lazy"
+                            />
+                        </a>
+                        <ul
+                            class="dropdown-menu dropdown-menu-end"
+                            aria-labelledby="navbarDropdownMenuAvatar"
+                        >
+                            <li>
+                            <a class="dropdown-item" type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#LoginModal">Sign In</a>
+                            </li>
+                            <li>
+                            <a class="dropdown-item" href="#">Logout</a>
+                            </li>
+                            
+                        </ul>
+                        </div>
+                    </div>
+                    <!-- Right elements -->
+                    </div>
+                    <!-- Container wrapper -->
+                </nav>
+ 
+  <!-- Navbar -->
+
+    </div>
+
+    
+    <!-- Modal -->
+    <div class="modal top fade" id="LoginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="static" data-mdb-keyboard="true">
+        <div class="modal-dialog modal-m  modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Mark Your Presence</h5>
+            <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-evenly; flex-wrap: wrap; height: auto;">
+
+                <div style="display: flex; height: 99vh; width: 100%; background-color: rgb(255, 255, 255); border-radius: 20px; height: auto; max-width: 420px;">
+
+                    <div class="col" style="display: flex; flex-direction: column;height: 460px; width: 100%; padding: 0 5% 5% 2%; ">
+        
+                        <ul class="nav nav-tabs" style=" margin-top: 20px; margin-bottom: 30px;">
+                            <li class="nav-items">
+                              <a id="signin" class="nav-link active" aria-current="page" href="#" onclick="toggle_tabs(id)" style="text-align: center;" >Sign In</a>
+                            </li>
+                            <li class="nav-items">
+                              <a id="signup" class="nav-link" href="#" onclick="toggle_tabs(id)" style="text-align: center;">Sign Up</a>
+                            </li>
+                           
+                          </ul>     
+                        
+                        <div id="sign-in-form" style="width: 100%; height: auto; margin-bottom: 20px; display: flex;flex-direction: column; ">
+        
+                        
+        
+                        <div style="margin: 10px 0; display: flex; justify-content: center;">
+                            <section style="margin: 25px 0px 10px 0px; background-color: rgb(234, 234, 234); height: auto; width: fit-content; padding: 7px; border-radius: 5px 5px 0 0;">
+                                <input type="text" placeholder="E-mail" style="background: none; border: none; outline: 0; min-width: 200px;">
+                            </section>
+                        </div>
+                        <div style="margin: 15px 0; display: flex; justify-content: center;">
+                            <section style="margin: 10px 0px 20px 0; background-color: rgb(234, 234, 234); height: auto; width: fit-content; padding: 7px; border-radius: 5px 5px 0 0;">
+                                <input type="password" placeholder="Password" style="background: none; border: none; outline: 0; min-width: 200px;">
+                            </section>
+                        </div>
+        
+                        <div style="margin: 15px 0 10px 0px; display: flex; justify-content: center; align-items: center;">
+                            
+                                <button class="submit-btn">SIGN IN</button>
+                            
+                        </div>
+        
+                        
+        
+                    </div>
+        
+        
+                    <div id="sign-up-form" style="display:none; width: 100%; height: auto; margin-bottom: 20px; display: flex;flex-direction: column; ">
+        
+                        
+        
+                        <div style="height: 170px; width: 100%; overflow-y: auto;">
+        
+        
+                            <div style="margin: 10px 0; display: flex; justify-content: center;">
+                                <section style="margin: 25px 0px 10px 0px; background-color: rgb(234, 234, 234); height: auto; width: fit-content; padding: 7px; border-radius: 5px 5px 0 0;">
+                                    <input type="email" placeholder="E-mail" style="background: none; border: none; outline: 0; min-width: 200px;">
+                                </section>
+                            </div>
+                            <div style="margin: 10px 0; display: flex; justify-content: center;">
+                                <section style="margin: 10px 0px; background-color: rgb(234, 234, 234); height: auto; width: fit-content; padding: 7px; border-radius: 5px 5px 0 0;">
+                                    <input type="text" placeholder="Name" style="background: none; border: none; outline: 0; min-width: 200px;">
+                                </section>
+                            </div>
+                            <div style="margin: 10px 0; display: flex; justify-content: center;">
+                                <section style="margin: 10px 0px; background-color: rgb(234, 234, 234); height: auto; width: fit-content; padding: 7px; border-radius: 5px 5px 0 0;">
+                                    <input type="tel" placeholder="Contact no." style="background: none; border: none; outline: 0; min-width: 200px;">
+                                </section>
+                            </div>
+                            <div style="margin: 15px 0; display: flex; justify-content: center;">
+                                <section style="margin: 10px 0px 20px 0; background-color: rgb(234, 234, 234); height: auto; width: fit-content; padding: 7px; border-radius: 5px 5px 0 0;">
+                                    <input type="password" placeholder="Password" style="background: none; border: none; outline: 0; min-width: 200px;">
+                                </section>
+                            </div>
+                        
+                        
+                        </div>
+        
+                        <div style="margin: 15px 0 10px 0px; display: flex; justify-content: center; align-items: center;">
+                            
+                                <button class="submit-btn">SIGN UP</button>
+                            
+                        </div>
+        
+                        
+        
+                        
+                            
+                      </div>
+        
+                    
+                 
+                </div>  
+        
+                
+                     
+        
+            </div>
+                
+                
+
+            </div>
+
+            
+            <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+                Close
+            </button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+            </div> -->
+        </div>
+        </div>
+    </div>
+
+
+  
+
+
+    <div class="options centerall">
+
+        <div style="width: 80%; display: flex; flex-direction: row; align-items: center; margin-bottom: 20px; position: relative;">
+            
+            <input id="searchBox" type="text" class="form-control form-input" placeholder="Search anything..." onkeyup="showSuggestions()" style="border-radius: 100px 0 0 100px; height: 40px; padding-left: 20px;">
+            <ul id="suggestions" class="hidden" style="width: calc(100% - 75px); position: absolute; top: 100%; left: 0;">
+            
+            </ul>
+
+            <i class="fas fa-times" style="position: absolute; right: 55px; cursor: pointer;" onclick="picked('')" ></i>
+            <i class="fa fa-search centerall" style="padding: 5px;color: white; background-color: rgb(65, 86, 195) ; border-radius: 0 100px 100px 0; width: 50px;height: 40px;"></i>
+
+        </div>
+
+        <div style="width: 80%; display: flex; align-items: center; justify-content: space-evenly; flex-wrap: wrap; background-color: rgb(255, 255, 255); ">
+            
+            <div class="centerall" style="width: 230px; height: 70px; background-color: white; margin: 5px 10px ">
+
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-mdb-toggle="dropdown" aria-expanded="false">
+                      Buy/Rent
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                      <li><button class="dropdown-item" type="button" onclick="filter_list('type', 'buy')">Buy</button></li>
+                      <li><button class="dropdown-item" type="button" onclick="filter_list('type', 'rent')">Rent</button></li>
+                      
+                    </ul>
+                  </div>
+            
+            </div>
+            <div class="centerall" style="width: 230px; height: 70px; background-color: white; margin: 5px 10px ">
+
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-mdb-toggle="dropdown" aria-expanded="false">
+                      Pricing
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                      <li><button class="dropdown-item" type="button">&#60 &nbsp 50 lacs</button></li>
+                      <li><button class="dropdown-item" type="button">50 lacs - 1 cr. </button></li>
+                      <li><button class="dropdown-item" type="button">&#62 &nbsp 1 cr.</button></li>
+                      <li><button class="dropdown-item" type="button">&nbsp All</button></li>
+                    </ul>
+                </div>
+            
+            </div>
+            <div class="centerall" style="width: 230px; height: 70px; background-color: white; margin: 5px 10px ">
+            
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-mdb-toggle="dropdown" aria-expanded="false">
+                      Max Distance
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                      <li><button class="dropdown-item" type="button" onclick="filter_list('distance', 10)">10 km</button></li>
+                      <li><button class="dropdown-item" type="button" onclick="filter_list('distance', 20)">20 km</button></li>
+                      <li><button class="dropdown-item" type="button" onclick="filter_list('distance', 40)">40 km</button></li>
+                      <li><button class="dropdown-item" type="button" onclick="filter_list('distance', 100)">100 km</button></li>
+                      <li><button class="dropdown-item" type="button" onclick="filter_list('distance', 1000000000)">All</button></li>
+                    </ul>
+                  </div>
+
+            </div>
+            <div class="centerall" style="width: 230px; height: 70px; background-color: white; margin: 5px 10px ">
+
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-mdb-toggle="dropdown" aria-expanded="false">
+                      Arrange Accordingly
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                      <li><button class="dropdown-item" type="button">Lowest Price First</button></li>
+                      <li><button class="dropdown-item" type="button">Highest Price First</button></li>
+                      <li><button class="dropdown-item" type="button" onclick="arrange('distance')">Nearest First</button></li>
+                      <li><button class="dropdown-item" type="button" onclick="arrange('small_area')">Small Area First</button></li>
+                      <li><button class="dropdown-item" type="button" onclick="arrange('large_area')">Large Area First</button></li>
+                    </ul>
+                  </div>
+            
+            </div>
+            
+            
+
+        </div>
+
+        
+            
+            
+
+    </div>
+
+    <div class="container-fluid" style="background-color: rgb(255, 255, 255); padding: 15px; margin-bottom: 30px;">
+      <div class="row">
+        <div class="col-md-4" style="padding: 10px; box-shadow: 0px 5px 5px;">
+          <div style="height: 400px; background-color: rgb(255, 255, 255); display: flex; align-items: center; justify-content: center; position: relative;">
+            <h2 id='news1_title' style="position: absolute; z-index: 2; color: rgb(255, 255, 255); background-color: #4f4f4f; padding: 7px; position: absolute; bottom: 0; width: 100%; text-align: center; font-size: x-large; letter-spacing: 2px; transform: translateY(10px);">Loading...</h2>
+            <div class="bg-image hover-overlay ripple" style="height: 100%; width: 100%;">
+              <img id='news1' src="https://picsum.photos/200/300" class="img-fluid" style="height: 100%; width: 100%;"/>
+              
+              <a id='news1_link' href="#" target="_blank">
+                
+                <div class="mask" style="background-color: rgba(57, 192, 237, 0.2);"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" style="padding: 10px; box-shadow: 0px 5px 5px;">
+          <div style="height: 400px; background-color: rgb(255, 255, 255); display: flex; align-items: center; justify-content: center; position: relative;">
+            <h2 id='news2_title' style="position: absolute; z-index: 2; color: rgb(0, 0, 0); background-color: #ffffff; padding: 7px; position: absolute; bottom: 0; width: 100%; text-align: center; font-size: x-large; letter-spacing: 2px; transform: translateY(10px);">Loading...</h2>
+            <div class="bg-image hover-overlay ripple" style="height: 100%; width: 100%;">
+              <img id='news2' src="https://picsum.photos/200/300" class="img-fluid" style="height: 100%; width: 100%;"/>
+              
+              <a id='news2_link' href="#" target="_blank">
+                
+                <div class="mask" style="background-color: rgba(57, 192, 237, 0.2);"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" style="padding: 10px; box-shadow: 0px 5px 5px;">
+          <div style="height: 400px; background-color: aliceblue; display: flex; align-items: center; justify-content: center; position: relative;">
+            <h2 id='news3_title' style="position: absolute; z-index: 2; color: aliceblue; background-color: #000; padding: 7px; position: absolute; bottom: 0; width: 100%; text-align: center; font-size: x-large; letter-spacing: 2px; transform: translateY(10px);">Loading...</h2>
+            <div class="bg-image hover-overlay ripple" style="height: 100%; width: 100%;">
+              <img id='news3' src="https://picsum.photos/200/300" class="img-fluid" style="height: 100%; width: 100%;"/>
+              
+              <a id='news3_link' href="#" target="_blank">
+                
+                <div class="mask" style="background-color: rgba(57, 192, 237, 0.2);"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 20px; position: relative; min-height: 50px;">
+      <span style="position: absolute;height: 40px; width: 100px; border-radius: 10px 10px 0 0; margin: 20px 20px 20px calc(100vw - 130px) ;box-shadow: 0 0 5px #000; padding: 10px 20px; cursor: pointer;" onclick="picked('refresh')">Refresh</span>
+      <span style=" position: absolute; height: 40px; width: 100px; border-radius: 10px 10px 0 0; margin: 20px 130px 20px calc(100vw - 250px) ;box-shadow: 0 0 5px #000; padding: 10px 20px; cursor: pointer;" onclick="getLocation()">Cal Dist</span>
+    </div>
+    
+    <div id="propertylist" style="height: auto; min-height: 200px; width: calc(100% - 50px); margin-left: 25px;">
+      
+        
+         
+        <div>
+            <div class="jumbotron text-center hoverable p-4" style=" margin: 5px; border-radius: 10px; box-shadow: 0 0 7px #000; max-width: 1200px;">
+    
+                <!-- Grid row -->
+                <div class="row" style="align-items: center; justify-content: space-evenly;">
+              
+                  <!-- Grid column -->
+                  <div class="col-md-4 " style="margin: 0; height: min-content;" >
+              
+                    <!-- Featured image -->
+                    <div class="view overlay" style="height: 80%; width: 100%; display: flex; justify-content: center; ">
+                      <img src="https://mdbootstrap.com/img/Photos/Others/laptop-sm.webp" class="img-fluid" alt="Sample image for first version of blog listing" style="min-height: 300px; min-width: 280px;">
+                      
+              
+                    </div>
+              
+                  </div>
+                  <!-- Grid column -->
+              
+                  <!-- Grid column -->
+                  <div class="col-md-7 text-md-left ml-3 mt-3">
+              
+                    <!-- Excerpt -->
+                    <a href="#!" class="green-text"  style="text-align: right;">
+                      <h6 class="h6 pb-1" ><i class="fa fa-walking"></i> &nbsp;5.0 kms </h6>
+                    </a>
+              
+                    <h2 class="h2 mb-4" style="text-align: left; color: #003fb4; letter-spacing: 2px; margin-bottom: 5px;">PREMVISHNU </h2>
+              
+                   
+              
+                    <h4 class="font-weight-normal" style="text-align: left;">
+                      ₹ 66.5 L - 77.5 L    </h4>
+                      <p class="font-weight-normal" style="text-align: left;">1-BHK</p>
+              
+                    <p class="font-weight-normal" style="text-align: left;"><i class="fa fa-map-marker-alt"></i>&nbsp;&nbsp;
+                    C-302, Premvishnu, Mulund - East, Mumbai - 400081, Maharashtra      </p>
+              
+                    
+                    
+                    <p class="font-weight-normal" style="text-align: left;"><i class="fa fa-phone"></i> &nbsp;&nbsp;9895478930 <br><i class="fa fa-envelope"></i> &nbsp;&nbsp;pranav07@somaiya.edu  </p>
+              
+                    <div style="justify-content: flex-end; display: flex; margin-top: 10px;">
+                      <input class='contact-btn' type="button" value="CONTACT">
+                    </div>
+              
+                  </div>
+                  <!-- Grid column -->
+              
+                </div>
+                <!-- Grid row -->
+              
+              </div>
+        </div>
+            
+    </div>
+    
+    <div id="spinner" class="d-flex justify-content-center visually-hidden" style="min-height: 300px;">
+        <div class="spinner-border text-primary" role="status" style="margin-top: 20px;">
+          
+        </div>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <footer
+    class="text-center text-lg-start text-white"
+    style="background-color: #1c2331"
+    >
+<!-- Section: Social media -->
+<section
+       class="d-flex justify-content-between p-4"
+       style="background-color: #ce5151"
+       >
+<!-- Left -->
+<div class="me-5">
+  <span>Get connected with us on social networks:</span>
+</div>
+<!-- Left -->
+
+<!-- Right -->
+<div style="display: flex; flex-wrap: wrap; justify-content: space-evenly;">
+  <a href="" class="text-white me-5">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+  <a href="" class="text-white me-5">
+    <i class="fab fa-twitter"></i>
+  </a>
+  <a href="" class="text-white me-5">
+    <i class="fab fa-google"></i>
+  </a>
+  <a href="" class="text-white me-5">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a href="" class="text-white me-5">
+    <i class="fab fa-linkedin"></i>
+  </a>
+  <a href="" class="text-white me-5">
+    <i class="fab fa-github"></i>
+  </a>
+</div>
+<!-- Right -->
+</section>
+<!-- Section: Social media -->
+
+<!-- Section: Links  -->
+<section style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
+<div class="container text-center text-md-start mt-5" style="width: 99vw;">
+  <!-- Grid row -->
+  <div class="row mt-3" style="width: 100%;">
+    <!-- Grid column -->
+    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+      <!-- Content -->
+      <h6 class="text-uppercase fw-bold">Realty Rise</h6>
+      <hr
+          class="mb-4 mt-0 d-inline-block mx-auto"
+          style="width: 60px; background-color: #7c4dff; height: 2px"
+          />
+      <p>
+        Take your real estate journey to new heights with RealityRise.
+      </p>
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+      <!-- Links -->
+      <h6 class="text-uppercase fw-bold">Products</h6>
+      <hr
+          class="mb-4 mt-0 d-inline-block mx-auto"
+          style="width: 60px; background-color: #7c4dff; height: 2px"
+          />
+      <p>
+        <a href="#!" class="text-white">MDBootstrap</a>
+      </p>
+      <p>
+        <a href="#!" class="text-white">MDWordPress</a>
+      </p>
+      <p>
+        <a href="#!" class="text-white">BrandFlow</a>
+      </p>
+      <p>
+        <a href="#!" class="text-white">Bootstrap Angular</a>
+      </p>
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+      <!-- Links -->
+      <h6 class="text-uppercase fw-bold">Useful links</h6>
+      <hr
+          class="mb-4 mt-0 d-inline-block mx-auto"
+          style="width: 60px; background-color: #7c4dff; height: 2px"
+          />
+      <p>
+        <a href="#!" class="text-white">Your Account</a>
+      </p>
+      <p>
+        <a href="#!" class="text-white">Become an Affiliate</a>
+      </p>
+      <p>
+        <a href="#!" class="text-white">Shipping Rates</a>
+      </p>
+      <p>
+        <a href="#!" class="text-white">Help</a>
+      </p>
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+      <!-- Links -->
+      <h6 class="text-uppercase fw-bold">Contact</h6>
+      <hr
+          class="mb-4 mt-0 d-inline-block mx-auto"
+          style="width: 60px; background-color: #7c4dff; height: 2px"
+          />
+      <p><i class="fas fa-home mr-3"></i> Mumbai-400xxx, India</p>
+      <p><i class="fas fa-envelope mr-3"></i> pranav07@somaiya.edu </p>
+      <p><i class="fas fa-phone mr-3"></i> +91 9845698740</p>
+      <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+    </div>
+    <!-- Grid column -->
+  </div>
+  <!-- Grid row -->
+</div>
+</section>
+<!-- Section: Links  -->
+
+<!-- Copyright -->
+<div
+   class="text-center p-3"
+   style="background-color: rgba(0, 0, 0, 0.2)"
+   >
+© Copyright 2022-2023 :
+<a class="text-white" href="#"
+   >Pranav's Website</a
+  >
+</div>
+<!-- Copyright -->
+</footer>
+   
+    
+
+</body>
+
+</html>
