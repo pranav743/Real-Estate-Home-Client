@@ -280,11 +280,11 @@
   
 
 
-    <div class="options centerall">
+    <div class="options centerall" style="background-image: url('./imgs/cityscape.jpeg');background-size: cover ;background-repeat: no-repeat;background-position: center; background-attachment: fixed;padding: 25px 0 0 0;">
 
-        <div style="width: 80%; display: flex; flex-direction: row; align-items: center; margin-bottom: 20px; position: relative;">
+        <div style="width: 35%; display: flex; flex-direction: row; align-items: center; margin: 20px 0 30px 0; position: relative; min-width: 350px; border-radius: 100px; box-shadow: 0 0 10px #000;">
             
-            <input id="searchBox" type="text" class="form-control form-input" placeholder="Search anything..." onkeyup="showSuggestions()" style="border-radius: 100px 0 0 100px; height: 40px; padding-left: 20px;">
+            <input id="searchBox" type="text" class="form-control form-input" placeholder="Search anything..." onkeyup="showSuggestions()" style="border-radius: 100px 0 0 100px; height: 40px; padding-left: 20px; ">
             <ul id="suggestions" class="hidden" style="width: calc(100% - 75px); position: absolute; top: 100%; left: 0;">
             
             </ul>
@@ -294,12 +294,12 @@
 
         </div>
 
-        <div style="width: 80%; display: flex; align-items: center; justify-content: space-evenly; flex-wrap: wrap; background-color: rgb(255, 255, 255); ">
+        <div style="width: 100%; display: flex; align-items: center; justify-content: space-evenly; flex-wrap: wrap; background-image: linear-gradient(0deg, #000000, #00000000); ">
             
-            <div class="centerall" style="width: 230px; height: 70px; background-color: white; margin: 5px 10px ">
+            <div class="centerall" style="width: 200px; height: 60px; background-color: rgb(255, 255, 255,0);; margin: 0px 0px ">
 
                 <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-mdb-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-mdb-toggle="dropdown" aria-expanded="false" style="min-width: 200px;">
                       Buy/Rent
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -310,10 +310,10 @@
                   </div>
             
             </div>
-            <div class="centerall" style="width: 230px; height: 70px; background-color: white; margin: 5px 10px ">
+            <div class="centerall" style="width: 200px; height: 70px; background-color: rgb(255, 255, 255,0);; margin: 5px 10px ">
 
                 <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-mdb-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-mdb-toggle="dropdown" aria-expanded="false" style="min-width: 200px;">
                       Pricing
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -325,10 +325,10 @@
                 </div>
             
             </div>
-            <div class="centerall" style="width: 230px; height: 70px; background-color: white; margin: 5px 10px ">
+            <div class="centerall" style="width: 200px; height: 70px; background-color: rgb(255, 255, 255,0);; margin: 5px 10px ">
             
                 <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-mdb-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-mdb-toggle="dropdown" aria-expanded="false" style="min-width: 200px;">
                       Max Distance
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -341,10 +341,10 @@
                   </div>
 
             </div>
-            <div class="centerall" style="width: 230px; height: 70px; background-color: white; margin: 5px 10px ">
+            <div class="centerall" style="width: 200px; height: 70px; background-color: rgb(255, 255, 255,0);; margin: 5px 10px ">
 
                 <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-mdb-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-mdb-toggle="dropdown" aria-expanded="false" style="min-width: 200px;">
                       Arrange Accordingly
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -483,6 +483,16 @@
           
         </div>
     </div>
+
+    <div id="map" style="position: fixed; background-color: #ffffff; height: 90vh; width: 90vw; top: 60px; left: 5vw; z-index: 3; border-radius: 10px; box-shadow: 0 0 5px #000;">
+      <div style="height: 60px; background-color: #2a2a2a; top: 0; border-radius: 10px 10px 0 0; display: flex; align-items: center; justify-content: flex-end;">
+        <p style="position: absolute; color: #fff; left: 20px; height: 60px; margin: 0; display: flex; align-items: center;">Location</p>
+        <p style="text-align: end; color: #fff; font-size: 20px; padding: 0 20px; margin: 0; width: 100px; cursor: pointer;" onclick="hide_map()">X</p>
+      </div>
+      <div style="height: calc(100% - 60px); overflow: hidden;">
+      <iframe id="map_link" src="https://www.google.com/maps/embed/v1/view?key=AIzaSyA2hnT2wE-zEOIQuR7D6oUEjXxreTtc_MQ&center=48.858093,2.294694&zoom=15" width="100%" height="100%" frameborder="0" style="border:0; border-radius: 10px;" allowfullscreen="" ></iframe>
+      </div>
+    </div>
     
 
 
@@ -498,7 +508,7 @@
 
 
     <footer
-    class="text-center text-lg-start text-white"
+    class="text-center text-lg-start text-white;"
     style="background-color: #1c2331"
     >
 <!-- Section: Social media -->
@@ -634,6 +644,9 @@
 </div>
 <!-- Copyright -->
 </footer>
+
+
+
    
     
 
