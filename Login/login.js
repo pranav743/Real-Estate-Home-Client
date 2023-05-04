@@ -1,4 +1,5 @@
 document.getElementById('sign-up-form').style.display="none";
+document.getElementById('map').style.display = 'none';
 
 
 var latitide = 19.1661473;
@@ -92,8 +93,10 @@ const details = [
     distance : '-',
     area : 800,
     bhk : "3-BHK",
-    price : "45 L - 75 L",
+    price : "45 K - 75 K",
+    min_price: 45000,
     address : "C-302, Premvishnu, Mulund - East, Mumbai - 400081, Maharashtra",
+    img : "./imgs/premvishnu.jpg",
     contact : "9324098270",
     email : "pranav07@somaiya.edu",
     latitide : 18.922064,
@@ -109,7 +112,9 @@ const details = [
     area : 900,
     bhk : "3-BHK",
     price : "85 L - 95 L",
+    min_price: 8500000,
     address : "A-101, Sunflower Heights, Mulund - West, Mumbai - 400080, Maharashtra",
+    img : "./imgs/Sunflower.jpg",
     contact : "9324098270",
     email : "pranav07@somaiya.edu",
     latitide : 19.2089391,
@@ -124,8 +129,10 @@ const details = [
     distance : '-',
     area : 500,
     bhk : "3-BHK",
-    price : "45 L - 75 L",
+    price : "45 K - 75 K",
+    min_price: 45000,
     address : "C-302, Premvishnu, Mulund - East, Mumbai - 400081, Maharashtra",
+    img : "./imgs/Premvishnu2.jpg",
     contact : "9324098270",
     email : "pranav07@somaiya.edu",
     latitide : 19.072864,
@@ -141,7 +148,9 @@ const details = [
     area : 1200,
     bhk : "2-BHK",
     price : "60 L - 80 L",
+    min_price: 6000000,
     address : "A-202, Spring Meadows, Kandivali - West, Mumbai - 400067, Maharashtra",
+    img : "./imgs/SpringMeadows.jpg",
     contact : "9823765876",
     email : "johndoe@gmail.com",
     latitide : 19.205174,
@@ -156,8 +165,10 @@ const details = [
     distance : '-',
     area : 800,
     bhk : "1-BHK",
-    price : "35 L - 45 L",
+    price : "35 K - 45 K",
+    min_price: 35000,
     address : "B-101, Green Acres, Powai, Mumbai - 400076, Maharashtra",
+    img : "./imgs/GreenAcres.jpg",
     contact : "9823765876",
     email : "johndoe@gmail.com",
     latitide : 19.117246,
@@ -173,7 +184,9 @@ const details = [
     area : 1500,
     bhk : "3-BHK",
     price : "1.2 Cr - 1.5 Cr",
+    min_price: 12000000,
     address : "D-801, Oasis Tower, Andheri - East, Mumbai - 400069, Maharashtra",
+    img : "./imgs/OasisTower.jpg",
     contact : "9823765876",
     email : "johndoe@gmail.com",
     latitide : 19.118473,
@@ -188,8 +201,10 @@ const details = [
     distance : '-',
     area : 1700,
     bhk : "4-BHK",
-    price : "1.15 Cr - 1.5Cr ",
+    price : "1.3 Cr - 1.5Cr ",
+    min_price: 13000000,
     address : "C-202, Enso Sanza, Kandivali - East, Mumbai - 400067, Maharashtra",
+    img : "./imgs/EnzoSanza.jpg",
     contact : "7382973647",
     email : "divekar@gmail.com",
     latitide : 20.748132,
@@ -204,8 +219,10 @@ const details = [
     distance : '-',
     area : 1300,
     bhk : "2-BHK",
-    price : "1.59 Cr - 1.7Cr ",
+    price : "1.6 Cr - 1.7Cr ",
+    min_price: 16000000,
     address : "C-202, RHV, Bandra - East, Mumbai - 400067, Maharashtra",
+    img : "./imgs/Raheja.jpg",
     contact : "8473921874",
     email : "tomy@gmail.com",
     latitide : 19.948738,
@@ -220,8 +237,10 @@ const details = [
     distance : '-',
     area : 1600,
     bhk : "3-BHK",
-    price : "75 L - 80L ",
+    price : "47 K - 60 K ",
+    min_price: 47000,
     address : "C-102, Romell orbis, Andheri - East, Mumbai - 400067, Maharashtra",
+    img : "./imgs/Romell.jpg",
     contact : "8746738293",
     email : "damon@gmail.com",
     latitide : 19.942798,
@@ -236,8 +255,10 @@ const details = [
     distance : '-',
     area : 1300,
     bhk : "2-BHK",
-    price : "1.09 Cr -1.8Cr ",
+    price : "1 Cr -1.8Cr ",
+    min_price: 10000000,
     address : "D-406, Runwal avenue, Kanjurmarg - East, Mumbai - 400067, Maharashtra",
+    img : "./imgs/Runwal.jpg",
     contact :  "7263927362",
     email : "aliza@gmail.com",
     latitide : 19.848738,
@@ -252,8 +273,10 @@ const details = [
     distance : '-',
     area : 1500,
     bhk : "2-BHK",
-    price : "1 Cr - 1.2Cr ",
+    price : "35 K - 40 Kr ",
+    min_price: 35000,
     address : "C-202, condename artclave, Bandra - West, Mumbai - 400067, Maharashtra",
+    img : "./imgs/Condename.jpg",
     contact : "8438495738",
     email : "elena@gmail.com",
     latitide : 19.948738,
@@ -268,8 +291,10 @@ const details = [
     distance : '-',
     area : 1800,
     bhk : "3-BHK",
-    price : "2.54 Cr - 2.7Cr ",
+    price : "2 Cr - 2.7Cr ",
+    min_price: 20000000,
     address : "A-202, LNCP Sion - West, Mumbai - 400067, Maharashtra",
+    img : "./imgs/LodhaNew.jpg",
     contact : "7387283827",
     email : "elena@gmail.com",
     latitide : 19.948448,
@@ -284,8 +309,10 @@ const details = [
     distance : '-',
     area : 1800,
     bhk : "3-BHK",
-    price : "70L - 75L ",
+    price : "50 K - 75 K ",
+    min_price: 50000,
     address : "B-604, Isle Tower, Malad - West, Mumbai - 400067, Maharashtra",
+    img : "./imgs/Dotom.jpg",
     contact : "8438495789",
     email : "stefan@gmail.com",
     latitide : 19.248738,
@@ -300,8 +327,10 @@ const details = [
     distance : '-',
     area : 1900,
     bhk : "4-BHK",
-    price : "75 L - 80L ",
+    price : "35 K - 40 K ",
+    min_price: 35000,
     address : "A-202, aria park, Bandra - West, Mumbai - 400067, Maharashtra",
+    img : "./imgs/Konark.jpg",
     contact : "9838495738",
     email : "erica@gmail.com",
     latitide : 19.945638,
@@ -317,7 +346,9 @@ const details = [
     area : 1200,
     bhk : "2-BHK",
     price : "1 Cr - 1.2Cr ",
+    min_price: 10000000,
     address : "D-202, arihant residency,  Sion- West, Mumbai - 400067, Maharashtra",
+    img : "./imgs/Arihant.jpg",
     contact : "8458495738",
     email : "elena@gmail.com",
     latitide : 19.948138,
@@ -333,7 +364,9 @@ const details = [
     area : 1600,
     bhk : "3-BHK",
     price : "1 Cr - 1.8Cr ",
+    min_price: 10000000,
     address : "C-101, sumit atulyam, Bandra - East, Mumbai - 400067, Maharashtra",
+    img : "./imgs/Sumit.jpg",
     contact : "9438495738",
     email : "sofi@gmail.com",
     latitide : 19.948738,
@@ -349,7 +382,9 @@ const details = [
     area : 1800,
     bhk : "3-BHK",
     price : "2 Cr - 2.2Cr ",
+    min_price: 20000000,
     address : "F-102, Runwal bliss, Thane - West, Mumbai - 400067, Maharashtra",
+    img : "./imgs/RunwalBliss.jpg",
     contact : "8998495738",
     email : "mayank@gmail.com",
     latitide : 19.948778,
@@ -364,8 +399,10 @@ const details = [
     distance : '-',
     area : 1700,
     bhk : "2-BHK",
-    price : "80 L - 85L ",
+    price : "30 L - 35L ",
+    min_price: 30000,
     address : "G-111, forefront primeria, Vile Parle - West, Mumbai - 400067, Maharashtra",
+    img : "./imgs/ForeFront.jpg",
     contact : "7438495738",
     email : "sofia@gmail.com",
     latitide : 19.648738,
@@ -380,8 +417,10 @@ const details = [
     distance : '-',
     area : 1200,
     bhk : "1-BHK",
-    price : "1.88 Cr - 2Cr ",
+    price : "1.8 Cr - 2Cr ",
+    min_price: 18000000,
     address : "F-809, Astha heights, Goregaon - West, Mumbai - 400067, Maharashtra",
+    img : "./imgs/Astha.jpg",
     contact : "8438495738",
     email : "mannat@gmail.com",
     latitide : 19.928768,
@@ -396,8 +435,10 @@ const details = [
     distance : '-',
     area : 1900,
     bhk : "3-BHK",
-    price : "45 L - 50L ",
+    price : "40 K - 50 k ",
+    min_price: 40000,
     address : "I-05, Samar heights, Wadala - West, Mumbai - 400067, Maharashtra",
+    img : "./imgs/Ashta.jpg",
     contact : "7594738475",
     email : "karan@gmail.com",
     latitide : 19.948738,
@@ -518,8 +559,8 @@ function renderer(details){
                     <div class="col-md-4 " style="margin: 0; height: min-content;" >
                 
                       <!-- Featured image -->
-                      <div class="view overlay" style="height: 80%; width: 100%; display: flex; justify-content: center; ">
-                        <img src="https://mdbootstrap.com/img/Photos/Others/laptop-sm.webp" class="img-fluid" alt="Sample image for first version of blog listing" style="min-height: 300px; min-width: 280px;">
+                      <div class="view overlay" style="height: 80%; width: 100%; display: flex; justify-content: center; max-height: 400px">
+                        <img src="${details[i].img}" class="img-fluid" alt="Property image" style="min-height: 300px; min-width: 280px;">
                         
                 
                       </div>
@@ -531,7 +572,7 @@ function renderer(details){
                     <div class="col-md-7 text-md-left ml-3 mt-3">
                 
                       <!-- Excerpt -->
-                      <a href="#!" class="green-text"  style="text-align: right;">
+                      <a href="#!" class="green-text"  style="text-align: right;" onclick="show_map(${details[i].latitide}, ${details[i].longitude})">
                         <h6 class="h6 pb-1" ><i class="fa fa-walking"></i> &nbsp;${details[i].distance} kms </h6>
                       </a>
                 
@@ -552,7 +593,7 @@ function renderer(details){
                       
                 
                       <div style="justify-content: flex-end; display: flex; margin-top: 10px;">
-                        <input class="contact-btn" type="button" value="CONTACT"  >
+                        <input class="contact-btn" type="button" value="CONTACT" onclick="window.open('./contact/contact.html', '_blank');" >
                       </div>
                 
                     </div>
@@ -765,6 +806,20 @@ function arrange(category){
 
 
 }
+
+
+function show_map(latitude, longitude){
+  link_map_url = `https://www.google.com/maps/embed/v1/view?key=AIzaSyA2hnT2wE-zEOIQuR7D6oUEjXxreTtc_MQ&center=${latitude},${longitude}&zoom=15`
+  map = document.getElementById('map')
+  map_link = document.getElementById('map_link')
+  map_link.setAttribute('src', link_map_url);
+  map.style.display = 'block';
+
+}
+
+function hide_map(){
+  document.getElementById('map').style.display = 'none';
+} 
 
 
 const news_worker = new Worker('news_worker.js');
